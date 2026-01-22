@@ -49,11 +49,45 @@ public class kiki {
                 System.out.println(" ____________________________________________________________");
             }
 
+            else if (input.toLowerCase().startsWith("todo")) {
+                String name = input.substring(5);
+                tasks[numOfTasks++] = new ToDo(name);
+                System.out.println(" ____________________________________________________________");
+                System.out.println(" okay, added: " + tasks[numOfTasks - 1]);
+                System.out.println(" you have " + numOfTasks + " tasks in the list currently");
+                System.out.println(" ____________________________________________________________");
+            }
+
+            else if (input.toLowerCase().startsWith("deadline")) {
+                String[] parts = input.substring(9).split("/by", 2);
+                String name = parts[0].trim();
+                String date = parts[1].trim();
+                tasks[numOfTasks++] = new Deadline(name, date);
+                System.out.println(" ____________________________________________________________");
+                System.out.println(" okay, added: " + tasks[numOfTasks - 1]);
+                System.out.println(" you have " + numOfTasks + " tasks in the list currently");
+                System.out.println(" ____________________________________________________________");
+            }
+
+            else if (input.toLowerCase().startsWith("event")) {
+                String[] parts = input.substring(6).split("/from|/to");
+                String name = parts[0].trim();
+                String start = parts[1].trim();
+                String end = parts[2].trim();
+                tasks[numOfTasks++] = new Event(name, start, end);
+                System.out.println(" ____________________________________________________________");
+                System.out.println(" okay, added: " + tasks[numOfTasks - 1]);
+                System.out.println(" you have " + numOfTasks + " tasks in the list currently");
+                System.out.println(" ____________________________________________________________");
+
+            }
+
             else {
                 tasks[numOfTasks] = new Task(input);
                 numOfTasks++;
                 System.out.println(" ____________________________________________________________");
                 System.out.println(" added: " + input);
+                System.out.println(" you have " + numOfTasks + " tasks in the list currently");
                 System.out.println(" ____________________________________________________________");
             }
         }
