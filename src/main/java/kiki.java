@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class kiki {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String[] tasks = new String[100];
+        Task[] tasks = new Task[100];
         int numOfTasks = 0;
 
 
         System.out.println(" ____________________________________________________________\n" +
-                " ughhhhhh hi \n" +
+                " good morning \n" +
                 " i'm kiki\n" +
                 " what do you want?\n" +
                 " ____________________________________________________________\n");
@@ -31,8 +31,26 @@ public class kiki {
                 }
                 System.out.println(" ____________________________________________________________\n");
             }
+            else if (input.toLowerCase().startsWith("mark")) {
+                int index = Integer.parseInt(input.split(" ")[1]) - 1;
+                tasks[index].markDone();
+                System.out.println(" ____________________________________________________________");
+                System.out.println("you're welcome, i've marked this task as done: ");
+                System.out.println(" " + tasks[index]);
+                System.out.println(" ____________________________________________________________");
+            }
+
+            else if (input.toLowerCase().startsWith("unmark")){
+                int index = Integer.parseInt(input.split(" ")[1]) - 1;
+                tasks[index].markNotDone();
+                System.out.println(" ____________________________________________________________");
+                System.out.println("you're welcome, i've marked this task as not done: ");
+                System.out.println(" " + tasks[index]);
+                System.out.println(" ____________________________________________________________");
+            }
+
             else {
-                tasks[numOfTasks] = input;
+                tasks[numOfTasks] = new Task(input);
                 numOfTasks++;
                 System.out.println(" ____________________________________________________________");
                 System.out.println(" added: " + input);
