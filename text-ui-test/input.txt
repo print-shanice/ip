@@ -1,0 +1,8 @@
+todo cook pasta
+deadline finish homework /by Sunday
+list
+mark 1
+list
+event sleep /from Monday 2pm /to 4pm
+list
+bye
