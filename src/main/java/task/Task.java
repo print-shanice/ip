@@ -1,9 +1,11 @@
 package task;
 
-public class Task {
-    private String name;
+public abstract class Task {
+    protected String name;
     protected TaskStatus status;
     protected TaskType type;
+
+    public abstract String toFileString();
 
     public Task(String name) {
         this.name = name;

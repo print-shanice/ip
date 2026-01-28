@@ -13,4 +13,9 @@ public class Deadline extends Task {
     public String toString() {
         return super.toString() + " (by: " + date + ")";
     }
+
+    @Override
+    public String toFileString() {
+        return "D | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name + " | " + date;
+    }
 }

@@ -1,0 +1,2 @@
+D | 1 | math homework | Sunday
+E | 0 | birthday party | Sunday 9am | Sunday 3pm

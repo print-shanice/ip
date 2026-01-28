@@ -6,10 +6,11 @@ import task.ToDo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class kiki {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Task> tasks = new ArrayList<>();
+        ArrayList<Task> tasks = Storage.load();
 
 
         System.out.println(" ____________________________________________________________");
@@ -49,6 +50,8 @@ public class kiki {
                         throw new IndexOutOfBoundsException();
                     }
                     tasks.get(index).markDone();
+                    Storage.save(tasks);
+
                     System.out.println(" ____________________________________________________________");
                     System.out.println(" you're welcome, i've marked this task as done:");
                     System.out.println(" " + tasks.get(index));
@@ -80,6 +83,8 @@ public class kiki {
                         throw new IndexOutOfBoundsException();
                     }
                     tasks.get(index).markNotDone();
+                    Storage.save(tasks);
+
                     System.out.println(" ____________________________________________________________");
                     System.out.println(" you're welcome, i've marked this task as not done:");
                     System.out.println(" " + tasks.get(index));
@@ -106,6 +111,7 @@ public class kiki {
                     }
                     String name = input.substring(5).trim();
                     tasks.add(new ToDo(name));
+                    Storage.save(tasks);
                     System.out.println(" ____________________________________________________________");
                     System.out.println(" okay, added: " + tasks.get(tasks.size() - 1));
                     System.out.println(" you have " + tasks.size() + " tasks in the list currently");
@@ -135,6 +141,7 @@ public class kiki {
                         throw new IllegalArgumentException("deadline must have description and a /by date!");
                     }
                     tasks.add(new Deadline(name, date));
+                    Storage.save(tasks);
                     System.out.println(" ____________________________________________________________");
                     System.out.println(" okay, added: " + tasks.get(tasks.size() - 1));
                     System.out.println(" you have " + tasks.size() + " tasks in the list currently");
@@ -164,6 +171,7 @@ public class kiki {
                         throw new IllegalArgumentException("event must have a description, /from time, and /to time!");
                     }
                     tasks.add( new Event(name, start, end));
+                    Storage.save(tasks);
                     System.out.println(" ____________________________________________________________");
                     System.out.println(" okay, added: " + tasks.get(tasks.size() - 1));
                     System.out.println(" you have " + tasks.size() + " tasks in the list currently");
@@ -186,6 +194,7 @@ public class kiki {
                         throw new IndexOutOfBoundsException();
                     }
                     Task temp = tasks.remove(index);
+                    Storage.save(tasks);
 
                     System.out.println(" ____________________________________________________________");
                     System.out.println(" okay, removed: " + temp);
