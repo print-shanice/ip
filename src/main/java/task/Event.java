@@ -1,22 +1,34 @@
 package task;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class Event extends Task {
-    private String start;
-    private String end;
-    public Event(String name, String start, String end) {
+    private LocalDateTime start;
+    private LocalDateTime end;
+
+    private static final DateTimeFormatter INPUT = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+    private static final DateTimeFormatter OUTPUT = DateTimeFormatter.ofPattern("MMM d yyyy, h:mma");
+
+    public Event(String name, String from, String to) {
         super(name);
-        this.end = end;
-        this.start = start;
         this.type = TaskType.EVENT;
+        try {
+            this.end = LocalDateTime.parse(to.trim(),INPUT);
+            this.start = LocalDateTime.parse(from.trim(), INPUT);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("date must be in format D/M/YYYY HHmm");
+        }
     }
 
     @Override
     public String toString() {
-        return super.toString() + " (from: " + start + " to: " + end + ")";
+        return super.toString() + " (from: " + start.format(OUTPUT) + " to: " + end.format(OUTPUT) + ")";
     }
 
     @Override
     public String toFileString() {
-        return "E | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name + " | " + start + " | " + end;
+        return "E | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name + " | " + start.format(OUTPUT) + " | " + end.format(OUTPUT);
     }
 }
