@@ -49,4 +49,14 @@ public class TaskList {
         }
         ui.showLine();
     }
+
+    public ArrayList<Task> findTasks(String keyword) {
+        ArrayList<Task> result = new ArrayList<>();
+        for (Task t : tasks) {
+            if (t.getName().toLowerCase().contains(keyword.toLowerCase())) {
+                result.add(t);
+            }
+        }
+        return result;
+    }
 }

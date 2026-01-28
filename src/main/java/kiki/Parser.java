@@ -67,6 +67,12 @@ public class Parser {
                 }
                 return new DeleteCommand(Integer.parseInt(words[1]) - 1);
 
+            case "find":
+                if (words.length < 2 || words[1].isEmpty()) {
+                    throw new IllegalArgumentException("provide a keyword to find your tasks");
+                }
+                return new FindCommand(words[1]);
+
             default:
                 throw new IllegalArgumentException("not sure what that means...");
         }
