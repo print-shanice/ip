@@ -2,7 +2,7 @@ package kiki;
 
 import command.Command;
 
-public class kiki {
+public class Kiki {
     public static void main(String[] args) {
         Ui ui = new Ui();
         TaskList tasks = new TaskList(Storage.load());
