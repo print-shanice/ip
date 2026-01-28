@@ -1,3 +1,6 @@
+package kiki;
+
+import command.*;
 import task.Deadline;
 import task.Event;
 import task.ToDo;

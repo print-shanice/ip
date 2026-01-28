@@ -1,3 +1,7 @@
+package kiki;
+
+import command.Command;
+
 public class kiki {
     public static void main(String[] args) {
         Ui ui = new Ui();

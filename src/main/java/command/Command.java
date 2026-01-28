@@ -1,3 +1,8 @@
+package command;
+
+import kiki.TaskList;
+import kiki.Ui;
+
 public abstract class Command {
     protected boolean isExit = false;
 
