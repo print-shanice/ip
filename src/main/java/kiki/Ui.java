@@ -43,6 +43,10 @@ public class Ui {
         showLine();
     }
 
+    public void showPlainMessage(String message) {
+        System.out.println(message);
+    }
+
     public void close() {
         scanner.close();
     }

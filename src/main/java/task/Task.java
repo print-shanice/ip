@@ -24,4 +24,8 @@ public abstract class Task {
     public String toString() {
         return type.getSymbol() + "[" + (status == TaskStatus.DONE ? "X" : " ") + "] " + name;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
