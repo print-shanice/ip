@@ -13,6 +13,9 @@ import task.ToDo;
 import task.Deadline;
 import task.Event;
 
+/**
+ * Represents storage for loading and saving data for Kiki chatbot
+ */
 
 public class Storage {
     private static final String DATA_DIRECTORY = "data";

@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represents an Event task that has a description, start time and end time
+ */
+
 public class Event extends Task {
     private LocalDateTime start;
     private LocalDateTime end;
@@ -11,6 +15,12 @@ public class Event extends Task {
     private static final DateTimeFormatter INPUT = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT = DateTimeFormatter.ofPattern("MMM d yyyy, h:mma");
 
+    /**
+     * Constructs an Event with the given description, from time and to time
+     * @param name the description of the Deadline
+     * @param from the from time of the Deadline
+     * @param to the to time of the Deadline
+     */
     public Event(String name, String from, String to) {
         super(name);
         this.type = TaskType.EVENT;

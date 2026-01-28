@@ -3,6 +3,10 @@ package kiki;
 import task.Task;
 import java.util.ArrayList;
 
+/**
+ * Represents a list of all tasks for processing via commands in the Kiki chatbot
+ */
+
 public class TaskList {
     private ArrayList<Task> tasks;
 

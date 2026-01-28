@@ -4,11 +4,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represents a Deadline task that has a description, and deadline time
+ */
+
 public class Deadline extends Task {
     private LocalDateTime date;
     private static final DateTimeFormatter INPUT = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT = DateTimeFormatter.ofPattern("MMM d yyyy, h:mma");
 
+    /**
+     * Constructs a Deadline with the given description and by time
+     * @param name the description of the Deadline
+     * @param by the by time of the Deadline
+     */
     public Deadline(String name, String by) {
         super(name);
         this.type = TaskType.DEADLINE;

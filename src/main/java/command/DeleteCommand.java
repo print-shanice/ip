@@ -5,6 +5,10 @@ import kiki.TaskList;
 import kiki.Ui;
 import task.Task;
 
+/**
+ * Represents a user delete command that has a task index
+ */
+
 public class DeleteCommand extends Command {
     private int task;
 

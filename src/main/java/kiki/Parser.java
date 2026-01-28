@@ -5,6 +5,10 @@ import task.Deadline;
 import task.Event;
 import task.ToDo;
 
+/**
+ * Responsible for parsing all user input for the Kiki chatbot
+ */
+
 public class Parser {
     public static Command parse(String input) throws IllegalArgumentException {
         String[] words = input.trim().split("\\s+", 2);
