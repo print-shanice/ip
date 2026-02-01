@@ -39,7 +39,6 @@ public class TaskList {
     }
 
     public void listTasks(Ui ui) {
-        ui.showLine();
         if (tasks.isEmpty()) {
             System.out.println(" no tasks added");
         } else {
@@ -47,7 +46,6 @@ public class TaskList {
                 System.out.println(" " + (i + 1) + ". " + tasks.get(i));
             }
         }
-        ui.showLine();
     }
 
     public ArrayList<Task> findTasks(String keyword) {

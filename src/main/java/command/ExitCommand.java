@@ -9,8 +9,7 @@ import kiki.Ui;
 
 public class ExitCommand extends Command {
     @Override
-    public void execute(TaskList tasks, Ui ui) {
-        ui.showGoodbye();
-        isExit = true;
+    public String execute(TaskList tasks, Ui ui) {
+        return ui.showGoodbye();
     }
 }

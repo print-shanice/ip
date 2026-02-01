@@ -13,18 +13,18 @@ public class UnmarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui) {
+    public String execute(TaskList tasks, Ui ui) {
         try {
             Task task = tasks.getTask(index);
             task.markNotDone();
             Storage.save(tasks.getTasks());
-            ui.showMessage(" you're welcome, i've marked this task as not done: " + task);
+            return ui.showMessage("you're welcome, i've marked this task as not done: \n" + task);
         } catch (IndexOutOfBoundsException e) {
-            ui.showError("that task number does not exist!");
+            return ui.showError("that task number does not exist!");
         } catch (NumberFormatException e) {
-            ui.showError("please provide a valid task number to unmark!");
+            return ui.showError("please provide a valid task number to unmark!");
         }  catch (IllegalArgumentException e) {
-            ui.showError(e.getMessage());
+            return ui.showError(e.getMessage());
         }
     }
 }

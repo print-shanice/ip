@@ -3,48 +3,30 @@ package kiki;
 import java.util.Scanner;
 
 public class Ui {
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Ui() {
         scanner = new Scanner(System.in);
     }
 
-    public void showWelcome() {
-        showLine();
-        System.out.println(" good morning");
-        System.out.println(" i'm kiki");
-        System.out.println(" what do you want?");
-        showLine();
-    }
-
-    public void showLine() {
-        System.out.println(" ____________________________________________________________");
+    public String showWelcome() {
+        return "good morning!\ni'm kiki\nwhat do you want?";
     }
 
     public String readCommand() {
         return scanner.nextLine().trim();
     }
 
-    public void showGoodbye() {
-        showLine();
-        System.out.println(" finallyyyyy, bye!");
-        showLine();
+    public String showGoodbye() {
+        return "finallyyyyy, bye!";
     }
 
-    public void showError(String message) {
-        showLine();
-        System.out.println(" oi! " + message);
-        showLine();
+    public String showError(String message) {
+        return "oi!\n" + message;
     }
 
-    public void showMessage(String message) {
-        showLine();
-        System.out.println(message);
-        showLine();
-    }
-
-    public void showPlainMessage(String message) {
-        System.out.println(message);
+    public String showMessage(String message) {
+        return message;
     }
 
     public void close() {

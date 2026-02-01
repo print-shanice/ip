@@ -15,7 +15,7 @@ public abstract class Command {
      * @param tasks the TaskList object to operate on
      * @param ui the Ui Object to interact with the user
      */
-    public abstract void execute(TaskList tasks, Ui ui);
+    public abstract String execute(TaskList tasks, Ui ui);
 
     /**
      * Returns true if the command should exit the program
