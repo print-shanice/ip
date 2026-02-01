@@ -3,29 +3,34 @@ package kiki;
 import command.Command;
 
 /**
- * Represents a location in a 2D space. A <code>Point</code> object corresponds to
- * a coordinate represented by two integers e.g., <code>3,6</code>
+ * Represents an instance of the task manager bot, kiki
  */
 
 public class Kiki {
-    public static void main(String[] args) {
-        Ui ui = new Ui();
-        TaskList tasks = new TaskList(Storage.load());
+    private final Ui ui;
+    private final TaskList tasks;
 
+    public Kiki() {
+        ui = new Ui();
+        tasks = new TaskList(Storage.load());
         ui.showWelcome();
-        boolean isExit = false;
+    }
 
-        while (!isExit) {
-            try {
-                String command = ui.readCommand();
-                Command c = Parser.parse(command);
-                c.execute(tasks, ui);
-                isExit = c.isExit();
-            } catch (IllegalArgumentException e) {
-                ui.showError(e.getMessage());
-            }
+    public String getResponse(String input) {
+        try {
+            Command command = Parser.parse(input);
+            return command.execute(tasks, ui);
+        } catch (IllegalArgumentException e) {
+            return ui.showError(e.getMessage());
         }
-        ui.close();
+    }
+
+    public String getWelcomeMessage() {
+        return ui.showWelcome();
+    }
+
+    public String getGoodbyeMessage() {
+        return ui.showGoodbye();
     }
 }
 

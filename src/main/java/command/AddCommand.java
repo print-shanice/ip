@@ -13,10 +13,10 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui) {
+    public String execute(TaskList tasks, Ui ui) {
         tasks.addTask(task);
         Storage.save(tasks.getTasks());
 
-        ui.showMessage(" okay, added: " + task + "\n you have " + tasks.size() + " tasks in the list currently");
+        return ui.showMessage("okay, added: \n" + task + "\n you have " + tasks.size() + " tasks in the list currently");
     }
 }

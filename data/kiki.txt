@@ -1,2 +1,0 @@
-D | 0 | eat
-D | 0 | eat apple
