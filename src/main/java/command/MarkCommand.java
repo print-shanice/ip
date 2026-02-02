@@ -6,7 +6,7 @@ import kiki.Ui;
 import task.Task;
 
 public class MarkCommand extends Command {
-    private int index;
+    private final int index;
 
     public MarkCommand(int index) {
         this.index = index;
