@@ -6,7 +6,7 @@ import kiki.Ui;
 import task.Task;
 
 public class UnmarkCommand extends Command {
-    private int index;
+    private final int index;
 
     public UnmarkCommand(int index) {
         this.index = index;
