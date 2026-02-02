@@ -25,15 +25,23 @@ public class Parser {
                 if (words.length < 2) {
                     throw new IllegalArgumentException("specify task number!");
                 }
-                int markIndex = Integer.parseInt(words[1]) - 1;
-                return new MarkCommand(markIndex);
+                try {
+                    int markIndex = Integer.parseInt(words[1]) - 1;
+                    return new MarkCommand(markIndex);
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("specify task number!");
+                }
 
             case "unmark":
                 if (words.length < 2) {
                     throw new IllegalArgumentException("specify task number!");
                 }
-                int unmarkIndex = Integer.parseInt(words[1]) - 1;
-                return new UnmarkCommand(unmarkIndex);
+                try {
+                    int unmarkIndex = Integer.parseInt(words[1]) - 1;
+                    return new UnmarkCommand(unmarkIndex);
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("specify task number!");
+                }
 
             case "todo":
                 if (words.length < 2) {
@@ -65,7 +73,11 @@ public class Parser {
                 if (words.length < 2) {
                     throw new IllegalArgumentException("specify task number!");
                 }
-                return new DeleteCommand(Integer.parseInt(words[1]) - 1);
+               try {
+                   return new DeleteCommand(Integer.parseInt(words[1]) - 1);
+               }  catch (NumberFormatException e){
+                   throw new IllegalArgumentException("provide a valid task number to delete!");
+               }
 
             case "find":
                 if (words.length < 2 || words[1].isEmpty()) {

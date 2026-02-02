@@ -21,8 +21,6 @@ public class MarkCommand extends Command {
             return ui.showMessage("you're welcome, i've marked this task as done: \n" + task);
         } catch (IndexOutOfBoundsException e) {
             return ui.showError("that task number does not exist!");
-        } catch (NumberFormatException e) {
-            return ui.showError("please provide a valid task number to mark!");
         }
     }
 }

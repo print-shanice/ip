@@ -22,12 +22,9 @@ public class DeleteCommand extends Command {
             Task removedTask = tasks.getTask(task);
             tasks.removeTask(task);
             Storage.save(tasks.getTasks());
-
             return ui.showMessage("okay, removed: " + removedTask + "\n you have " + tasks.size() + " tasks in the list currently");
         } catch (IndexOutOfBoundsException e) {
             return ui.showError("that task number does not exist!");
-        } catch (NumberFormatException e) {
-            return ui.showError("provide a valid task number to delete!");
         }
     }
 }

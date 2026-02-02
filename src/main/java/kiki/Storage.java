@@ -45,7 +45,7 @@ public class Storage {
             }
             reader.close();
         } catch (IOException e) {
-            System.out.println(" failde to load saved tasks");
+            System.out.println(" failed to load saved tasks");
         }
         return tasks;
     }
