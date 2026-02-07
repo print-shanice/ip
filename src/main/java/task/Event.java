@@ -39,6 +39,7 @@ public class Event extends Task {
 
     @Override
     public String toFileString() {
-        return "E | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name + " | " + start.format(OUTPUT) + " | " + end.format(OUTPUT);
+        return "E | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name +
+                " | " + start.format(OUTPUT) + " | " + end.format(OUTPUT);
     }
 }

@@ -17,6 +17,7 @@ public class Deadline extends Task {
      * Constructs a Deadline with the given description and by time
      * @param name the description of the Deadline
      * @param by the by time of the Deadline
+     * @throws IllegalArgumentException if an invalid date is provided
      */
     public Deadline(String name, String by) {
         super(name);
