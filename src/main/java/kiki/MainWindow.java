@@ -45,5 +45,6 @@ public class MainWindow {
                 DialogBox.getKikiDialog(response, kikiImage)
         );
         userInput.clear();
+        assert userInput.getText().isEmpty() : "User input should be cleared";
     }
 }

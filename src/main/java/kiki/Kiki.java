@@ -21,6 +21,7 @@ public class Kiki {
             Command command = Parser.parse(input);
             return command.execute(tasks, ui);
         } catch (IllegalArgumentException e) {
+            assert !e.getMessage().isEmpty() : "Error message should be present";
             return ui.showError(e.getMessage());
         }
     }

@@ -12,6 +12,8 @@ import task.ToDo;
 public class Parser {
     public static Command parse(String input) throws IllegalArgumentException {
         String[] words = input.trim().split("\\s+", 2);
+        assert words.length >= 1 : "Parsed command should have at least one command word";
+
         String command = words[0].toLowerCase();
 
         switch (command) {

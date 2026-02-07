@@ -30,6 +30,7 @@ public class Storage {
             if (!Files.exists(path)) {
                 Files.createDirectories(Paths.get(DATA_DIRECTORY));
                 Files.createFile(path);
+                assert Files.exists(path): "Data file should be created";
                 return tasks;
             }
             BufferedReader reader = Files.newBufferedReader(path);
@@ -52,6 +53,7 @@ public class Storage {
 
     private static Task parseTask(String line) {
         String[] parts = line.split(" \\| ");
+        assert parts.length >= 3 : "saved task in data file must have at least 3 parts";
         String type = parts[0];
         boolean isDone = parts[1].equals("1");
         Task task;
@@ -80,6 +82,7 @@ public class Storage {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(DATA_FILE));
 
             for (Task task : tasks) {
+                assert task != null : "Task to be saved should not be null";
                 writer.write(task.toFileString());
                 writer.newLine();
             }

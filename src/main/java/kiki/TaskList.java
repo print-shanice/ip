@@ -19,6 +19,7 @@ public class TaskList {
     }
 
     public void addTask(Task task) {
+        assert task != null: "Task to be added cannot be null";
         this.tasks.add(task);
     }
 
@@ -49,6 +50,7 @@ public class TaskList {
     }
 
     public ArrayList<Task> findTasks(String keyword) {
+        assert !keyword.isEmpty(): "Search keyword should not be empty";
         ArrayList<Task> result = new ArrayList<>();
         for (Task t : tasks) {
             if (t.getName().toLowerCase().contains(keyword.toLowerCase())) {
