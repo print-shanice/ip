@@ -45,4 +45,9 @@ public class Event extends Task {
         return "E | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name +
                 " | " + start.format(OUTPUT) + " | " + end.format(OUTPUT);
     }
+
+    @Override
+    public void snooze(String newBy) {
+        this.end = LocalDateTime.parse(newBy.trim(), INPUT);;
+    }
 }

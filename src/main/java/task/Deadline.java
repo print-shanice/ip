@@ -41,4 +41,9 @@ public class Deadline extends Task {
     public String toFileString() {
         return "D | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name + " | " +  date.format(OUTPUT);
     }
+
+    @Override
+    public void snooze(String newBy) {
+        this.date = LocalDateTime.parse(newBy.trim(), INPUT);;
+    }
 }
