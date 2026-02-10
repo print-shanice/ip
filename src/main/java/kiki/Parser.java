@@ -95,6 +95,24 @@ public class Parser {
                 }
                 return new FindCommand(words[1]);
 
+            case "snooze":
+                if (words.length < 2 || words[1].isEmpty()) {
+                    throw new IllegalArgumentException("use format: snooze <task index> <date>");
+                }
+                String[] snoozeParts = words[1].split("\\s+", 2);
+                if (snoozeParts.length < 2) {
+                    throw new IllegalArgumentException("use format: snooze <task index> <date>");
+                }
+                int snoozeIndex;
+                try {
+                    snoozeIndex = Integer.parseInt(snoozeParts[0]) - 1;
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("task number must be a number!");
+                }
+
+                String newDate = snoozeParts[1].trim();
+                return new SnoozeCommand(snoozeIndex, newDate);
+
             default:
                 throw new IllegalArgumentException("not sure what that means...");
         }

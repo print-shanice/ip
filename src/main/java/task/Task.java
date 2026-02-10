@@ -44,4 +44,15 @@ public abstract class Task {
     public String getName() {
         return this.name;
     }
+
+    /**
+     * Snoozes the task by postponing the deadline to given newDate
+     *
+     * @param  newDate The new date for the task
+     * @throws  UnsupportedOperationException if the task is a ToDo
+     */
+    public void snooze(String newDate) {
+        throw new UnsupportedOperationException("todos cannot be snoozed!");
+    }
+
 }
