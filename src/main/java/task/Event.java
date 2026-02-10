@@ -37,6 +37,9 @@ public class Event extends Task {
         return super.toString() + " (from: " + start.format(OUTPUT) + " to: " + end.format(OUTPUT) + ")";
     }
 
+    /**
+     * Returns the formatted file string representation of Event
+     */
     @Override
     public String toFileString() {
         return "E | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name +

@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Launches the JavaFX application
+ */
 public class Main extends Application {
 
     private final Kiki kiki = new Kiki();

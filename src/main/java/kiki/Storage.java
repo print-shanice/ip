@@ -30,6 +30,7 @@ public class Storage {
             if (!Files.exists(path)) {
                 Files.createDirectories(Paths.get(DATA_DIRECTORY));
                 Files.createFile(path);
+                assert Files.exists(path): "Data file should be created";
                 return tasks;
             }
             BufferedReader reader = Files.newBufferedReader(path);
@@ -50,8 +51,16 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Parses the given line from the data file into a Task
+     *
+     * @param line The string representing a saved task
+     * @return The Task corresponding to the given line
+     * @throws IllegalArgumentException If line does not correspond to a valid Task
+     */
     private static Task parseTask(String line) {
         String[] parts = line.split(" \\| ");
+        assert parts.length >= 3 : "saved task in data file must have at least 3 parts";
         String type = parts[0];
         boolean isDone = parts[1].equals("1");
         Task task;
@@ -75,11 +84,17 @@ public class Storage {
         return task;
     }
 
+    /**
+     * Saves the current list of tasks to the data file
+     *
+     * @param tasks An ArrayList containing the tasks to be saved
+     */
     public static void save(ArrayList<Task> tasks) {
         try {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(DATA_FILE));
 
             for (Task task : tasks) {
+                assert task != null : "Task to be saved should not be null";
                 writer.write(task.toFileString());
                 writer.newLine();
             }

@@ -23,6 +23,11 @@ public class DialogBox extends HBox {
     @FXML
     private ImageView displayPicture;
 
+    /**
+     * Constructs a DialogBox with the given text and image
+     * @param text The text content to be displayed in the dialog box
+     * @param img The image corresponding to the text to be displayed in the dialog box
+     */
     private DialogBox(String text, Image img) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("/view/DialogBox.fxml"));
@@ -47,10 +52,22 @@ public class DialogBox extends HBox {
         setAlignment(Pos.TOP_LEFT);
     }
 
+    /**
+     * Creates a DialogBox representing a user message
+     * @param text The text content of the user's message
+     * @param img The image corresponding to the user
+     * @return A Dialog box configured to display the user message
+     */
     public static DialogBox getUserDialog(String text, Image img) {
         return new DialogBox(text, img);
     }
 
+    /**
+     * Creates a DialogBox representing a Kiki message
+     * @param text The text content of the Kiki's message
+     * @param img The image corresponding to Kiki
+     * @return A Dialog box configured to display Kiki's message
+     */
     public static DialogBox getKikiDialog(String text, Image img) {
         var db = new DialogBox(text, img);
         db.flip();

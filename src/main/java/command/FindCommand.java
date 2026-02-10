@@ -6,6 +6,10 @@ import kiki.TaskList;
 import kiki.Ui;
 import task.Task;
 
+/**
+ * Represents a user find command that has a given keyword from the Kiki chatbot
+ */
+
 public class FindCommand extends Command {
     private final String word;
 

@@ -10,8 +10,18 @@ import task.ToDo;
  */
 
 public class Parser {
+
+    /**
+     * Parses a user input string into a Command
+     *
+     * @param input The raw input string from the user
+     * @return A Command corresponding to the user input
+     * @throws IllegalArgumentException If the input does not correspond to a command
+     */
     public static Command parse(String input) throws IllegalArgumentException {
         String[] words = input.trim().split("\\s+", 2);
+        assert words.length >= 1 : "Parsed command should have at least one command word";
+
         String command = words[0].toLowerCase();
 
         switch (command) {

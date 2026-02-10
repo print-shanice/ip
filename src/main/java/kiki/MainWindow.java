@@ -7,6 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
+
+/**
+ * Represents a controller for the main application window in the Kiki chatbot UI
+ */
 public class MainWindow {
     @FXML
     private ScrollPane scrollPane;
@@ -21,6 +25,9 @@ public class MainWindow {
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/dog.jpg"));
     private Image kikiImage = new Image(this.getClass().getResourceAsStream("/images/kiki.jpg"));
 
+    /**
+     * Initialises the main window after FXML elements are loaded
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
@@ -45,5 +52,6 @@ public class MainWindow {
                 DialogBox.getKikiDialog(response, kikiImage)
         );
         userInput.clear();
+        assert userInput.getText().isEmpty() : "User input should be cleared";
     }
 }
