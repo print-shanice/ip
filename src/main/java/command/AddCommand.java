@@ -5,6 +5,10 @@ import kiki.TaskList;
 import kiki.Ui;
 import task.Task;
 
+/**
+ * Represents a user command to add tasks in the Kiki chatbot
+ */
+
 public class AddCommand extends Command {
     private Task task;
 

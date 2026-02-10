@@ -34,6 +34,9 @@ public class Deadline extends Task {
         return super.toString() + " (by: " + date.format(OUTPUT) + ")";
     }
 
+    /**
+     * Returns the formatted file string representation of Deadline
+     */
     @Override
     public String toFileString() {
         return "D | " + (status == TaskStatus.DONE ? "1" : "0") + " | " + name + " | " +  date.format(OUTPUT);

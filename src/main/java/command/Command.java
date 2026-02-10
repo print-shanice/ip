@@ -12,8 +12,8 @@ public abstract class Command {
     /**
      * Executes user command
      *
-     * @param tasks the TaskList object to operate on
-     * @param ui the Ui Object to interact with the user
+     * @param tasks The TaskList object to operate on
+     * @param ui The Ui Object to interact with the user
      */
     public abstract String execute(TaskList tasks, Ui ui);
 

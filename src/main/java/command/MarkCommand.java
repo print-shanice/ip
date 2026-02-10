@@ -5,6 +5,11 @@ import kiki.TaskList;
 import kiki.Ui;
 import task.Task;
 
+/**
+ * Represents a user mark command that has an index to mark a task as done from the Kiki chatbot
+ */
+
+
 public class MarkCommand extends Command {
     private final int index;
 

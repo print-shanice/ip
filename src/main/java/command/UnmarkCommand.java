@@ -5,6 +5,9 @@ import kiki.TaskList;
 import kiki.Ui;
 import task.Task;
 
+/**
+ * Represents a user unmark command that has an index to mark a task as not done from the Kiki chatbot
+ */
 public class UnmarkCommand extends Command {
     private final int index;
 
