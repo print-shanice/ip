@@ -6,6 +6,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import javafx.application.Platform;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 
 /**
  * Acts as the JavaFX controller for the Kiki chatbot's main application window.
@@ -85,5 +88,13 @@ public class MainWindow {
         );
         userInput.clear();
         assert userInput.getText().isEmpty() : "User input should be cleared after handling";
+
+        if (input.trim().equalsIgnoreCase("bye")) {
+            userInput.setDisable(true);
+            sendButton.setDisable(true);
+            PauseTransition delay = new PauseTransition(Duration.seconds(1));
+            delay.setOnFinished(event -> Platform.exit());
+            delay.play();
+        }
     }
 }

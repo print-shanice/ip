@@ -14,3 +14,6 @@ Claude was also used to improve existing Javadoc comments to be more specific an
 Claude was used to refine the GUI by 
 1. Cropping profile pictures as a circle
 2. Highlighting errors, text will be shown in red if an error is encountered
+
+#### Improve Bye command
+Claude was used to add functionality to the bye command such that the app closes after a bye command
