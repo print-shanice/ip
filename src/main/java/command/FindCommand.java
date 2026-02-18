@@ -7,16 +7,31 @@ import kiki.Ui;
 import task.Task;
 
 /**
- * Represents a user find command that has a given keyword from the Kiki chatbot
+ * Represents a command to find tasks whose names contain a given keyword
+ * in the Kiki chatbot.
  */
-
 public class FindCommand extends Command {
+    /** The keyword to search for in task names. */
     private final String word;
 
+    /**
+     * Constructs a FindCommand with the given search keyword.
+     *
+     * @param word The keyword to search for in task names.
+     */
     public FindCommand(String word) {
         this.word = word;
     }
 
+    /**
+     * Executes this find command by searching the task list for tasks whose names
+     * contain the stored keyword (case-insensitive) and returning a formatted list
+     * of matching tasks, or a message if no matches are found.
+     *
+     * @param tasks The TaskList to search through.
+     * @param ui    The Ui instance (not directly used; output is built via StringBuilder).
+     * @return A formatted string listing matching tasks, or a no-match message.
+     */
     @Override
     public String execute(TaskList tasks, Ui ui) {
         ArrayList<Task> matches = tasks.findTasks(word);
