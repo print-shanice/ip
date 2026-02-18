@@ -13,6 +13,9 @@ import javafx.scene.layout.VBox;
  * and connects the UI to the {@link Kiki} backend.
  */
 public class MainWindow {
+    /** The error prefix used by {@link Ui#showError(String)} to identify error responses. */
+    private static final String ERROR_PREFIX = "oi!";
+
     /** The scroll pane that contains the dialog container. */
     @FXML
     private ScrollPane scrollPane;
@@ -40,12 +43,13 @@ public class MainWindow {
 
     /**
      * Initialises the main window after all FXML elements have been loaded.
-     * Binds the scroll pane's vertical scroll position to the dialog container's height
-     * so the view automatically scrolls to the latest message.
+     * Binds the scroll pane's vertical value and the dialog container's width
+     * so content resizes correctly when the window is resized.
      */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        dialogContainer.prefWidthProperty().bind(scrollPane.widthProperty());
     }
 
     /**
@@ -55,21 +59,29 @@ public class MainWindow {
      */
     public void setDuke(Kiki kiki) {
         this.kiki = kiki;
-        dialogContainer.getChildren().add(DialogBox.getKikiDialog(kiki.getWelcomeMessage(), kikiImage));
+        dialogContainer.getChildren().add(
+                DialogBox.getKikiDialog(kiki.getWelcomeMessage(), kikiImage));
     }
 
     /**
      * Handles the user's input when the send button is clicked or Enter is pressed.
-     * Appends the user's message and Kiki's response as dialog boxes to the container,
-     * then clears the input field.
+     * Detects whether Kiki's response is an error and renders it in a distinct style.
+     * Clears the input field after processing.
      */
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
+        if (input.trim().isEmpty()) {
+            return;
+        }
         String response = kiki.getResponse(input);
+        boolean isError = response.startsWith(ERROR_PREFIX);
+
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getKikiDialog(response, kikiImage)
+                isError
+                        ? DialogBox.getKikiErrorDialog(response, kikiImage)
+                        : DialogBox.getKikiDialog(response, kikiImage)
         );
         userInput.clear();
         assert userInput.getText().isEmpty() : "User input should be cleared after handling";
