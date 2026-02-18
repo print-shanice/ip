@@ -18,7 +18,7 @@ Kiki is a **desktop chatbot for managing tasks** — todos, deadlines, and event
     * [Snooze a deadline or event: `snooze`](#snooze-a-deadline-or-event-snooze)
     * [Exit: `bye`](#exit-bye)
     * [Saving your data](#saving-your-data)
-* [Command Summary](#command-summary)
+
 ---
 ## Quick Start
 
