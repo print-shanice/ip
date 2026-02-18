@@ -8,12 +8,11 @@
          xmlns="http://javafx.com/javafx/17"
          xmlns:fx="http://javafx.com/fxml/1"
          alignment="CENTER_RIGHT"
-         spacing="8"
-         maxWidth="420.0">
+         spacing="8">
     <children>
         <Label fx:id="dialog"
                wrapText="true"
-               maxWidth="270.0"
+               maxWidth="320.0"
                minHeight="-Infinity" />
         <ImageView fx:id="displayPicture"
                    fitWidth="36"
